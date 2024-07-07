@@ -27,3 +27,27 @@ int average(int marks[],int size){
     }
     return sum/size;
 }
+
+// 2nd way to to same thing --------------------------------------------------------------------------------------------------------
+
+                            /* passing array as argument in function */
+
+#include <iostream>
+using namespace std;
+int average(int[], int); // function declaration
+
+int main()
+{
+    int marks[]={10,20,30,40,50,60};
+    int size = sizeof(marks)/sizeof(marks[0]);
+    int a=average(marks,size);
+    cout<<a;
+}
+int average(int* marks,int size){
+    
+    int sum=0;
+    for(int i=0;i<size;i++){
+        sum+= *(marks+i); // sum+= marks[i];
+    }
+    return sum/size;
+}
